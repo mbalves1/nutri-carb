@@ -5,6 +5,7 @@ import { UsersModule } from './users/users.module';
 
 import { MongooseModule } from '@nestjs/mongoose';
 import { IngredientsModule } from './ingredients/ingredients.module';
+import { SnackModule } from './snack/snack.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { IngredientsModule } from './ingredients/ingredients.module';
     ),
     UsersModule,
     IngredientsModule,
+    SnackModule,
   ],
   controllers: [AppController],
   providers: [AppService],

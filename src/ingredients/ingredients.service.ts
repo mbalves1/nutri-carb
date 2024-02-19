@@ -1,15 +1,24 @@
 import { Injectable } from '@nestjs/common';
 import { CreateIngredientDto } from './dto/create-ingredient.dto';
 import { UpdateIngredientDto } from './dto/update-ingredient.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { IngredientEntity } from './entities/ingredient.entity';
 
 @Injectable()
 export class IngredientsService {
-  create(createIngredientDto: CreateIngredientDto) {
-    return 'This action adds a new ingredient';
+  constructor(
+    @InjectModel('Ingredient')
+    private readonly ingredientModel: Model<IngredientEntity>,
+  ) {}
+
+  async create(createIngredientDto: CreateIngredientDto) {
+    const ingredient = new this.ingredientModel(createIngredientDto);
+    return await ingredient.save();
   }
 
-  findAll() {
-    return `This action returns all ingredients`;
+  async findAll() {
+    return await this.ingredientModel.find().exec();
   }
 
   findOne(id: number) {
