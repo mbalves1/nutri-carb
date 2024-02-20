@@ -6,4 +6,5 @@ export const IngredientSchema = new mongoose.Schema({
   quantityvalue: Number,
   unity: String,
   type: String,
+  userid: String,
 });

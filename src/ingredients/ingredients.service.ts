@@ -17,8 +17,13 @@ export class IngredientsService {
     return await ingredient.save();
   }
 
-  async findAll() {
-    return await this.ingredientModel.find().exec();
+  async findAll(userid: string) {
+    console.log(userid);
+    return await this.ingredientModel
+      .find({
+        userid: userid,
+      })
+      .exec();
   }
 
   findOne(id: number) {

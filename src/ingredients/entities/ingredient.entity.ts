@@ -6,4 +6,5 @@ export class IngredientEntity extends Document {
   quantityvalue: number;
   unity: string;
   type: string;
+  userid: string;
 }
