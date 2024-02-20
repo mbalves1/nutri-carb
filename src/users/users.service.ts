@@ -53,6 +53,17 @@ export class UsersService {
     };
   }
 
+  async verifyToken(token: string): Promise<any> {
+    try {
+      const decoded = this.jwtService.verify(token);
+      console.log('aqqui decoded', decoded);
+
+      return decoded;
+    } catch (err) {
+      return null;
+    }
+  }
+
   async findAll() {
     return await this.userModel.find().exec();
   }
