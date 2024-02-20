@@ -3,7 +3,7 @@ import { SnackService } from './snack.service';
 import { SnackController } from './snack.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SnackSchema } from './schemas/snack.schema';
-import { IngredientSchema } from 'src/ingredients/schemas/ingredient.schema';
+import { IngredientSchema } from '../ingredients/schemas/ingredient.schema';
 
 @Module({
   imports: [
