@@ -30,6 +30,12 @@ export class UsersController {
     return this.usersService.findOne(id);
   }
 
+  @Post('login')
+  findByLogin(@Body() login: string) {
+    console.log('login', login);
+    return this.usersService.login(login);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(+id, updateUserDto);

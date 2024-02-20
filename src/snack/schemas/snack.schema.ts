@@ -6,13 +6,5 @@ export const SnackSchema = new mongoose.Schema({
     default: Date.now,
   },
   type: String,
-  ingredients: [
-    {
-      name: String,
-      carbvalue: Number,
-      quantityvalue: Number,
-      unity: String,
-      type: String,
-    },
-  ],
+  ingredients: Object,
 });
